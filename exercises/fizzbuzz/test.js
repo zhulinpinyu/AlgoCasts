@@ -1,16 +1,15 @@
 const fizzBuzz = require('./index');
 
-test('fizzBuzz function is defined', () => {
+test('fizzBuzz函数是否定义', () => {
   expect(fizzBuzz).toBeDefined();
 });
 
-test('Calling fizzbuzz with `5` prints out 5 statements', () => {
+test('输入参数为5, 打印输出5条语句', () => {
   fizzBuzz(5);
-
   expect(console.log.mock.calls.length).toEqual(5);
 });
 
-test('Calling fizzbuzz with 15 prints out the correct values', () => {
+test('输入参数为15,打印预期输出', () => {
   fizzBuzz(15);
 
   expect(console.log.mock.calls[0][0]).toEqual(1);
