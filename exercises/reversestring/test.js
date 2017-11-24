@@ -1,13 +1,13 @@
-const reverse = require('./index');
+const reverse = require('./index')
 
-test('Reverse function exists', () => {
-  expect(reverse).toBeDefined();
-});
+test('函数是否定义', () => {
+  expect(reverse).toBeDefined()
+})
 
-test('Reverse reverses a string', () => {
-  expect(reverse('abcd')).toEqual('dcba');
-});
+test('字符串反转', () => {
+  expect(reverse('mlx')).toEqual('xlm')
+})
 
-test('Reverse reverses a string', () => {
-  expect(reverse('  abcd')).toEqual('dcba  ');
-});
+test('带有空格的字符串反转', () => {
+  expect(reverse('   m  lx ')).toEqual(' xl  m   ')
+})
