@@ -24,19 +24,30 @@
 // }
 
 //Solution #2
-function chunk(array, size) {
+// function chunk(array, size) {
+//   const chunked = []
+//   for (ele of array) {
+//     /*
+//     * 此一种算法实现核心为: 数组是引用类型，
+//     * 所以修正last, chunked 也会随之修改
+//     */
+//     const last = chunked[chunked.length - 1]
+//     if(!last||last.length === size){
+//       chunked.push([ele])
+//     }else{
+//       last.push(ele)
+//     }
+//   }
+//   return chunked
+// }
+
+//Solution #3
+function chunk (array, size) {
   const chunked = []
-  for (ele of array) {
-    /*
-    * 此一种算法实现核心为: 数组是引用类型，
-    * 所以修正last, chunked 也会随之修改
-    */
-    const last = chunked[chunked.length - 1]
-    if(!last||last.length === size){
-      chunked.push([ele])
-    }else{
-      last.push(ele)
-    }
+  let index = 0
+  while (index < array.length) {
+    chunked.push(array.slice(index, index+size))
+    index += size
   }
   return chunked
 }
