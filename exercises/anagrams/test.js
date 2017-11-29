@@ -1,26 +1,26 @@
 const anagrams = require('./index.js');
 
-test('anagrams function exists', () => {
+test('anagrams函数是否定义', () => {
   expect(typeof anagrams).toEqual('function');
 });
 
-test('"hello" is an anagram of "llohe"', () => {
+test('"hello"和"llohe"由相同的字符组成', () => {
   expect(anagrams('hello', 'llohe')).toBeTruthy();
 });
 
-test('"Whoa! Hi!" is an anagram of "Hi! Whoa!"', () => {
+test('"Whoa! Hi!"和"Hi! Whoa!"由相同的字符组成', () => {
   expect(anagrams('Whoa! Hi!', 'Hi! Whoa!')).toBeTruthy();
 });
 
-test('"One One" is not an anagram of "Two two two"', () => {
+test('"One One"和"Two two two"由不同的字符组成', () => {
   expect(anagrams('One One', 'Two two two')).toBeFalsy();
 });
 
-test('"One one" is not an anagram of "One one c"', () => {
+test('"One one"和"One one c"由不同的字符组成', () => {
   expect(anagrams('One one', 'One one c')).toBeFalsy();
 });
 
-test('"A tree, a life, a bench" is not an anagram of "A tree, a fence, a yard"', () => {
+test('"A tree, a life, a bench"和"A tree, a fence, a yard"由不同的字符组成', () => {
   expect(
     anagrams('A tree, a life, a bench', 'A tree, a fence, a yard')
   ).toBeFalsy();
