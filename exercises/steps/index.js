@@ -17,14 +17,31 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  for(let i=1; i<=n; i++){
-    console.log(print(n, i))
-  }
-}
+// Solution #1
+// function steps(n) {
+//   for(let i=1; i<=n; i++){
+//     console.log(print(n, i))
+//   }
+// }
 
-const print = (n, i) => {
-  return '#'.repeat(i) + ' '.repeat(n-i)
+// const print = (n, i) => {
+//   return '#'.repeat(i) + ' '.repeat(n-i)
+// }
+
+// Solution #2
+
+function steps(n) {
+  for(let i=0; i<n; i++){
+    let ret = ''
+    for(let j=0; j<n; j++){
+      if(j<=i){
+        ret += '#'
+      }else{
+        ret += ' '
+      }
+    }
+    console.log(ret)
+  }
 }
 
 module.exports = steps;
