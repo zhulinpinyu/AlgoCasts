@@ -14,6 +14,20 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+// Solution #1
+function pyramid(n) {
+  const row_length = 2 * n - 1
+  for(let i=1; i <= n; i++){
+    const shape_length = 2 * i - 1
+    const side_length = (row_length - shape_length) / 2
+    const output = `${' '.repeat(side_length)}${'#'.repeat(shape_length)}${' '.repeat(side_length)}`
+    console.log(output)
+  }
+}
+
+// Solution #2
+function pyramid(n) {
+
+}
 
 module.exports = pyramid;
