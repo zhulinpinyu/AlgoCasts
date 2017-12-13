@@ -25,9 +25,20 @@ function pyramid(n) {
   }
 }
 
-// Solution #2
-function pyramid(n) {
-
-}
+//Solution #2
+// function pyramid(n) {
+//   const mid = Math.floor((2 * n - 1) / 2)
+//   for(let row=0; row<n; row++){
+//     let output = ''
+//     for(let col=0; col<(2*n-1); col++){
+//       if(col >= (mid - row) && col <= (mid + row)){
+//         output += '#'
+//       }else{
+//         output += ' '
+//       }
+//     }
+//     console.log(output)
+//   }
+// }
 
 module.exports = pyramid;
