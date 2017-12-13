@@ -19,15 +19,21 @@
 // }
 
 // Solution #2
+// function vowels(str) {
+//   let count = 0
+//   const checkers = 'aeiou'
+//   for(let char of str.toLowerCase()){
+//     if(checkers.includes(char)){
+//       count ++
+//     }
+//   }
+//   return count
+// }
+
+// Solution #3
 function vowels(str) {
-  let count = 0
-  const checkers = 'aeiou'
-  for(let char of str.toLowerCase()){
-    if(checkers.includes(char)){
-      count ++
-    }
-  }
-  return count
+  const ret = str.match(/[aeiou]/gi)
+  return  ret ? ret.length : 0
 }
 
 module.exports = vowels;
