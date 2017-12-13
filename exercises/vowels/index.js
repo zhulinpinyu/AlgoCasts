@@ -8,13 +8,25 @@
 //   vowels('Why?') --> 0
 
 // Solution #1
+// function vowels(str) {
+//   let count = 0
+//   str.split('').forEach((e,i) => {
+//     if(['a','e','i','o','u'].includes(e.toLowerCase())){
+//       count ++
+//     }
+//   })
+//   return count
+// }
+
+// Solution #2
 function vowels(str) {
   let count = 0
-  str.split('').forEach((e,i) => {
-    if(['a','e','i','o','u'].includes(e.toLowerCase())){
+  const checkers = 'aeiou'
+  for(let char of str.toLowerCase()){
+    if(checkers.includes(char)){
       count ++
     }
-  })
+  }
   return count
 }
 
