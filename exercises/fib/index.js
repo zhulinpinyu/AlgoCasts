@@ -8,13 +8,20 @@
 // Example:
 //   fib(4) === 3
 
+//Solution #1
+// function fib(n) {
+//     const ret = [0, 1]
+//     for (let i = 2; i <= n; i++) {
+//         const current = ret[i - 1] + ret[i - 2]
+//         ret.push(current)
+//     }
+//     return ret[n]
+// }
+
+//Solution #2
 function fib(n) {
-    const ret = [0, 1]
-    for (let i = 2; i <= n; i++) {
-        const current = ret[i - 1] + ret[i - 2]
-        ret.push(current)
-    }
-    return ret[n]
+    if (n < 2) return n
+    return fib(n - 1) + fib(n - 2)
 }
 
 module.exports = fib;
