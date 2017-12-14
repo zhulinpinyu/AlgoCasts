@@ -19,9 +19,30 @@
 // }
 
 //Solution #2
-function fib(n) {
+// function fib(n) {
+//     if (n < 2) return n
+//     return fib(n - 1) + fib(n - 2)
+// }
+
+
+//Solution #3 优化 Solution #2
+function slowFib(n) {
     if (n < 2) return n
     return fib(n - 1) + fib(n - 2)
 }
 
+function memorize(fn) {
+    const cache = {}
+        //...args 读取fib函数的输入参数 也就是n
+    return function(...args) {
+        if (cache[args]) {
+            return cache[args]
+        }
+        const ret = fn.apply(this, args)
+        cache[args] = ret
+        return ret
+    }
+}
+
+const fib = memorize(slowFib)
 module.exports = fib;
