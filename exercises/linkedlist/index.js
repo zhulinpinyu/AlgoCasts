@@ -15,17 +15,11 @@ class LinkedList {
     }
 
     insertFirst(data) {
-        this.head = new Node(data, this.head)
+        this.insertAt(data, 0)
     }
 
     insertLast(data) {
-        const last = new Node(data)
-        if (this.getLast()) {
-            this.getLast().next = last
-        } else {
-            this.insertFirst(data)
-        }
-
+        this.insertAt(data, this.size())
     }
 
     size() {
@@ -40,15 +34,11 @@ class LinkedList {
     }
 
     getFirst() {
-        return this.head
+        return this.getAt(0)
     }
 
     getLast() {
-        let node = this.head
-        while (node && node.next) {
-            node = node.next
-        }
-        return node
+        return this.getAt(this.size() - 1)
     }
 
     clear() {
@@ -56,26 +46,11 @@ class LinkedList {
     }
 
     removeFirst() {
-        const first = this.getFirst()
-        if (!first) return
-        this.head = first.next
+        this.removeAt(0)
     }
 
     removeLast() {
-        let parent = this.head
-            //only one Node
-        if (!parent || !parent.next) {
-            this.head = null
-            return
-        }
-
-        // Node count > 1
-        let node = parent.next
-        while (node.next) {
-            parent = node
-            node = node.next
-        }
-        parent.next = null
+        this.removeAt(this.size() - 1)
     }
 
     getAt(i) {
@@ -93,24 +68,29 @@ class LinkedList {
 
     removeAt(i) {
         const prev = this.getAt(i - 1)
+        const current = this.getAt(i)
         const next = this.getAt(i + 1)
         if (prev) {
             prev.next = next
         } else if (next) {
             this.head = next
+        } else if (current) {
+            this.head = null
         }
     }
 
     insertAt(data, i) {
-        const prev = this.getAt(i - 1)
+        const prev = this.getAt(i - 1) || this.getLast()
         const next = this.getAt(i)
-        if (prev) {
-            prev.next = new Node(data, next)
-        } else if (next) {
+        if (i === 0 || !prev) {
             this.head = new Node(data, next)
-        } else {
-            this.insertLast(data)
+            return
         }
+        if (i === this.size()) {
+            prev.next = new Node(data)
+            return
+        }
+        prev.next = new Node(data, next)
     }
 
     forEach(callback) {
