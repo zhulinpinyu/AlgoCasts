@@ -86,10 +86,6 @@ class LinkedList {
             this.head = new Node(data, next)
             return
         }
-        if (i === this.size()) {
-            prev.next = new Node(data)
-            return
-        }
         prev.next = new Node(data, next)
     }
 
