@@ -90,6 +90,45 @@ class LinkedList {
         }
         return null
     }
+
+    removeAt(i) {
+        const prev = this.getAt(i - 1)
+        const next = this.getAt(i + 1)
+        if (prev) {
+            prev.next = next
+        } else if (next) {
+            this.head = next
+        }
+    }
+
+    insertAt(data, i) {
+        const prev = this.getAt(i - 1)
+        const next = this.getAt(i)
+        if (prev) {
+            prev.next = new Node(data, next)
+        } else if (next) {
+            this.head = new Node(data, next)
+        } else {
+            this.insertLast(data)
+        }
+    }
+
+    forEach(callback) {
+        let node = this.head
+        while (node) {
+            callback(node)
+            node = node.next
+        }
+    }
+
+    *
+    [Symbol.iterator]() {
+        let node = this.head
+        while (node) {
+            yield node
+            node = node.next
+        }
+    }
 }
 
 module.exports = { Node, LinkedList };
