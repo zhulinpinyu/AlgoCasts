@@ -35,7 +35,7 @@ class LinkedList {
 
     getLast() {
         let node = this.head
-        while (node.next) {
+        while (node && node.next) {
             node = node.next
         }
         return node
