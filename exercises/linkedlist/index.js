@@ -18,6 +18,16 @@ class LinkedList {
         this.head = new Node(data, this.head)
     }
 
+    insertLast(data) {
+        const last = new Node(data)
+        if (this.getLast()) {
+            this.getLast().next = last
+        } else {
+            this.insertFirst(data)
+        }
+
+    }
+
     size() {
         let count = 0
         let node = this.head
@@ -66,6 +76,19 @@ class LinkedList {
             node = node.next
         }
         parent.next = null
+    }
+
+    getAt(i) {
+        let count = 0
+        let node = this.head
+        while (node) {
+            if (i === count) {
+                return node
+            }
+            count++
+            node = node.next
+        }
+        return null
     }
 }
 
